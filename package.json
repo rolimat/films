@@ -1,0 +1,26 @@
+{
+  "name": "xtreamer_films",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production",
+    "server": "webpack-dev-server",
+    "start": "npm run dev && npm run server"
+  },
+  "author": "Alberto Mateos Checa",
+  "dependencies": {
+    "@fdaciuk/ajax": "^2.3.0",
+    "ampersand-app": "^2.0.0",
+    "ampersand-model": "^8.0.1",
+    "ampersand-router": "^5.0.0",
+    "ampersand-view": "^10.0.2",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "webpack": "^4.1.1",
+    "webpack-cli": "^2.0.11",
+    "webpack-dev-server": "^3.1.1"
+  }
+}
