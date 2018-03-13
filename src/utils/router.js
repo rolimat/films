@@ -1,5 +1,6 @@
 import App from 'ampersand-app';
 import AmpersandRouter from 'ampersand-router';
+import ViewSwitcher from 'ampersand-view-switcher';
 import FilmDetailsModel from '../models/filmDetails';
 import FilmDetailsView from '../views/filmDetails';
 import FilmsCollectionView from '../views/filmsCollection';
@@ -8,6 +9,11 @@ let clearMainContentArea = function() {
   let node = document.querySelector('#content');
   let cNode = node.cloneNode(false);
   node.parentNode.replaceChild(cNode ,node);
+};
+
+let switchView = function(view) {
+  clearMainContentArea();
+  document.querySelector('#content').appendChild(view.render().el);
 };
 
 let Router = AmpersandRouter.extend({
@@ -22,18 +28,14 @@ let Router = AmpersandRouter.extend({
     let filmsCollectionView = new FilmsCollectionView({
         collection: App.collections.filmsCollection
       });
-    filmsCollectionView.render()
-    clearMainContentArea();
-    document.querySelector('#content').appendChild(filmsCollectionView.el);
     App.collections.filmsCollection.getFilms();
+    switchView(filmsCollectionView);
   },
 
   details: function(id) {
     let filmDetailsModel = new FilmDetailsModel({'id': parseInt(id, 10)});
     let filmDetailsView = new FilmDetailsView({model: filmDetailsModel});
-    filmDetailsView.render();
-    clearMainContentArea();
-    document.querySelector('#content').appendChild(filmDetailsView.el);
+    switchView(filmDetailsView);
   }
 
 });
