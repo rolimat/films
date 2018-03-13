@@ -8,17 +8,9 @@ App.extend({
 		this.collections = {
 			'filmsCollection': new FilmsCollection()
 		};
-		this.views = {
-			'filmsCollectionView': new FilmsCollectionView({
-				collection: this.collections.filmsCollection
-			})
-		}
-		this.router = new Router();
 		
-
-
+		this.router = new Router();
 		this.router.history.start();
-		//this.router.navigate('#details/10');
 	}
 });
 

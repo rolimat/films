@@ -1,5 +1,14 @@
 import App from 'ampersand-app';
 import AmpersandRouter from 'ampersand-router';
+import FilmDetailsModel from '../models/filmDetails';
+import FilmDetailsView from '../views/filmDetails';
+import FilmsCollectionView from '../views/filmsCollection';
+
+let clearMainContentArea = function() {
+  let node = document.querySelector('#content');
+  let cNode = node.cloneNode(false);
+  node.parentNode.replaceChild(cNode ,node);
+};
 
 let Router = AmpersandRouter.extend({
 
@@ -10,13 +19,21 @@ let Router = AmpersandRouter.extend({
   },
 
   list: function() {
-    App.views.filmsCollectionView.render();
-    document.querySelector('#content').appendChild(App.views.filmsCollectionView.el);
+    let filmsCollectionView = new FilmsCollectionView({
+        collection: App.collections.filmsCollection
+      });
+    filmsCollectionView.render()
+    clearMainContentArea();
+    document.querySelector('#content').appendChild(filmsCollectionView.el);
     App.collections.filmsCollection.getFilms();
   },
 
   details: function(id) {
-    console.log('DETAILS! -> ' + id);
+    let filmDetailsModel = new FilmDetailsModel({'id': parseInt(id, 10)});
+    let filmDetailsView = new FilmDetailsView({model: filmDetailsModel});
+    filmDetailsView.render();
+    clearMainContentArea();
+    document.querySelector('#content').appendChild(filmDetailsView.el);
   }
 
 });
