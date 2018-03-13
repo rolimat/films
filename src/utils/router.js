@@ -35,6 +35,7 @@ let Router = AmpersandRouter.extend({
   details: function(id) {
     let filmDetailsModel = new FilmDetailsModel({'id': parseInt(id, 10)});
     let filmDetailsView = new FilmDetailsView({model: filmDetailsModel});
+    filmDetailsModel.fetch();
     switchView(filmDetailsView);
   }
 
