@@ -16,6 +16,8 @@
     "ampersand-model": "^8.0.1",
     "ampersand-router": "^5.0.0",
     "ampersand-view": "^10.0.2",
+    "handlebars": "^4.0.11",
+    "handlebars-loader": "^1.6.0",
     "underscore": "^1.8.3"
   },
   "devDependencies": {

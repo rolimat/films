@@ -9,9 +9,23 @@ module.exports = {
     path: __dirname + "/build",
     filename: "app.min.js"
   },
-  plugins: debug ? [] : [
+  module: {
+    rules: [
+      { test: /\.handlebars$/, loader: "handlebars-loader" }
+    ]
+  },
+  plugins: debug ? [ new webpack.LoaderOptionsPlugin({
+      options: {
+        handlebarsLoader: {}
+      }
+    })] : [
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false }),
-  ],
+    new webpack.LoaderOptionsPlugin({
+      options: {
+        handlebarsLoader: {}
+      }
+    }),
+  ]
 };
