@@ -1,7 +1,6 @@
-var FilmModel = require('ampersand-model');
+import Model from 'ampersand-model';
 
-
-module.exports = FilmModel.extend({
+let FilmModel = Model.extend({
 	props: {
         id: 'number',
         overview: 'string',
@@ -11,3 +10,5 @@ module.exports = FilmModel.extend({
         vote_average: 'number',
     },
 });
+
+export default FilmModel;

@@ -1,9 +1,12 @@
-var AmpersandView = require('ampersand-view');
-var _ = require('underscore');
+import View from 'ampersand-view';
+import _ from 'underscore';
 
-module.exports = AmpersandView.extend({
+
+let AmpersandView = View.extend({
 	template: _.template('<div>title: <%= title %> </div>'),
 	render: function() {
 		this.renderWithTemplate(this.model);		
 	}
 });
+
+export default AmpersandView;

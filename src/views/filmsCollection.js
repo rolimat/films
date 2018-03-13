@@ -1,7 +1,7 @@
-var AmpersandView = require('ampersand-view');
-var FilmView = require('./film');
+import View from 'ampersand-view';
+import FilmView from './film';
 
-module.exports = AmpersandView.extend({
+let FilmsCollectionView = View.extend({
 	template: '<div class="itemContainer"></div>',
 	initialize: function() {
 		this.listenTo(this.collection, 'change', this.render);
@@ -12,3 +12,5 @@ module.exports = AmpersandView.extend({
         return this;
 	}
 });
+
+export default FilmsCollectionView;

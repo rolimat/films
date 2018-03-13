@@ -1,9 +1,9 @@
-var FilmsCollection = require('ampersand-rest-collection');
-var FilmModel = require('../models/film');
-var FilmsRequest = require('../utils/filmsRequest')
-var _ = require('underscore');
+import Collection from 'ampersand-rest-collection';
+import FilmModel from '../models/film';
+import getFilms from '../utils/filmsRequest';
+import _ from 'underscore';
 
-module.exports = FilmsCollection.extend({
+let FilmsCollection = Collection.extend({
 	model: FilmModel,
 	addFilmsFromResponse: function(films) {
 		_.each(films, function(film) {
@@ -11,6 +11,8 @@ module.exports = FilmsCollection.extend({
 		}, this);
 	},
 	getFilms: function(page) {
-		FilmsRequest.getFilms(page || 1, this);
+		getFilms(page || 1, this);
 	}
 });
+
+export default FilmsCollection;

@@ -1,9 +1,9 @@
-var app = require('ampersand-app');
-var Router = require('./utils/router');
-var FilmsCollection = require('./collections/films');
-var FilmsCollectionView = require('./views/filmsCollection');
+import App from 'ampersand-app';
+import Router from './utils/router';
+import FilmsCollection from './collections/films';
+import FilmsCollectionView from './views/filmsCollection';
 
-app.extend({
+App.extend({
 	init: function() {
 		this.collections = {
 			'filmsCollection': new FilmsCollection()
@@ -23,5 +23,5 @@ app.extend({
 });
 
 window.onload = function() {
-	app.init();
+	App.init();
 };

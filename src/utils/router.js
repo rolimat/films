@@ -1,7 +1,7 @@
-var AmpersandRouter = require('ampersand-router');
-var app = require('ampersand-app');
+import App from 'ampersand-app';
+import AmpersandRouter from 'ampersand-router';
 
-module.exports = AmpersandRouter.extend({
+let Router = AmpersandRouter.extend({
 
   routes: {
     '': 'list',
@@ -10,9 +10,9 @@ module.exports = AmpersandRouter.extend({
   },
 
   list: function() {
-    app.views.filmsCollectionView.render();
-    document.querySelector('#content').appendChild(app.views.filmsCollectionView.el);
-    app.collections.filmsCollection.getFilms();
+    App.views.filmsCollectionView.render();
+    document.querySelector('#content').appendChild(App.views.filmsCollectionView.el);
+    App.collections.filmsCollection.getFilms();
   },
 
   details: function(id) {
@@ -20,3 +20,5 @@ module.exports = AmpersandRouter.extend({
   }
 
 });
+
+export default Router;
