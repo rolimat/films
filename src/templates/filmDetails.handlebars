@@ -1,3 +1,35 @@
-<div>
-	<h1>Title: {{ title }}</h1>
-</div>
+<article class="card">
+	<div class="row">
+		<picture class="thumbnail">
+			<img src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/{{ poster_path }}"></img>
+		</picture>
+	</div>
+	<div class="card-content">
+			<h2>{{ title }}</h2>
+			<div>{{ overview }}</div>
+			<div><h3>Release</h3><i class="far fa-calendar-alt"></i> {{ release_date }}</div>
+			<div>
+				<h3>Genres</h3>
+				<span>
+	  				{{#each genres}}
+						{{ this.name }} | 
+					{{/each}}
+				</span>
+			</div>
+			<div>
+				<h3>Production</h3>
+				<span>
+	  				{{#each production_companies}}
+						{{ this.name }} | 
+					{{/each}}
+				</span>
+				<span>Budget: <i class="fas fa-dollar-sign"></i>{{ budget }} |</span>
+				<span>Revenue: <i class="fas fa-dollar-sign"></i>{{ revenue }}</span>
+			</div>
+			<div>
+				<h3>Voting </h3>
+				<span><i class="fas fa-signal"></i>{{ vote_average }}</span>
+				<span><i class="far fa-thumbs-up"></i>{{ vote_count }}</span>
+			</div>
+		</div>
+</article>

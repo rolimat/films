@@ -60,7 +60,6 @@ img {
 .card {
 	background: white;
 	margin-bottom: 2em;	
-    cursor: pointer;
 }
 
 .card a {
@@ -85,6 +84,10 @@ img {
 
 .card-content p {
 	font-size: 95%;
+}
+
+.clickable-card {
+    cursor: pointer;
 }
 
 /* Flexbox stuff */

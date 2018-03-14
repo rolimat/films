@@ -14,7 +14,7 @@ let FilmDetailsModel = Model.extend({
         poster_path: 'string',
         production_companies: 'array',
         production_countries: 'array',
-        release_date: 'date',
+        release_date: 'string',
         revenue: 'number',
         status: 'string',
         tagline: 'string',
