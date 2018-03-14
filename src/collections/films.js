@@ -7,9 +7,11 @@ let FilmsCollection = Collection.extend({
 	model: FilmModel,
 	currentPage: 1,
 	addFilmsFromResponse: function(films) {
-		_.each(films, function(film) {
-			this.add(new FilmModel(film));
-		}, this);
+		let newModels = _.map(films, function(film) {
+			return new FilmModel(film);
+		});
+		
+		this.add(newModels);
 	},
 	getFilms: function(page) {
 		getFilms(page || 1, this);
@@ -17,6 +19,9 @@ let FilmsCollection = Collection.extend({
 	getNextPage: function() {
 		this.currentPage++;
 		this.getFilms(this.currentPage);
+	},
+	isEmpty: function() {
+		return this.models.length < 1;
 	}
 });
 
