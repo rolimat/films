@@ -1,4 +1,16 @@
-<div class="film_wrapper">
-	<h1>Title: {{ title }}</h1>
-	<div>Votes: {{ vote_average }}</div>
-</div>
+<article class="film_wrapper card">
+	<div class="row">
+		<picture class="thumbnail">
+			<img src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/{{ poster_path }}"></img>
+		</picture>
+		<div class="card-content">
+			<h2>{{ title }}</h2>
+			<div>{{ overview }}</div>
+			<div><i class="far fa-calendar-alt"></i> {{ release_date }}</div>
+			<div>
+				<span><i class="fas fa-signal"></i>{{ vote_average }}</span>
+				<span><i class="far fa-thumbs-up"></i>{{ vote_count }}</span>
+			</div>
+		</div>
+	</div>
+</article>

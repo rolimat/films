@@ -6,14 +6,14 @@ import FilmDetailsView from '../views/filmDetails';
 import FilmsCollectionView from '../views/filmsCollection';
 
 let clearMainContentArea = function() {
-  let node = document.querySelector('#content');
+  let node = document.querySelector('#main-area');
   let cNode = node.cloneNode(false);
   node.parentNode.replaceChild(cNode ,node);
 };
 
 let switchView = function(view) {
   clearMainContentArea();
-  document.querySelector('#content').appendChild(view.render().el);
+  document.querySelector('#main-area').appendChild(view.render().el);
 };
 
 let Router = AmpersandRouter.extend({
