@@ -1,4 +1,4 @@
-import Collection from 'ampersand-rest-collection';
+import Collection from 'ampersand-collection';
 import FilmModel from '../models/film';
 import getFilms from '../utils/filmsRequest';
 import _ from 'underscore';

@@ -1,6 +1,5 @@
 import App from 'ampersand-app';
 import AmpersandRouter from 'ampersand-router';
-import ViewSwitcher from 'ampersand-view-switcher';
 import FilmDetailsModel from '../models/filmDetails';
 import FilmDetailsView from '../views/filmDetails';
 import FilmsCollectionView from '../views/filmsCollection';

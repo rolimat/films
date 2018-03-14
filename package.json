@@ -14,6 +14,7 @@
   "dependencies": {
     "@fdaciuk/ajax": "^2.3.0",
     "ampersand-app": "^2.0.0",
+    "ampersand-collection": "^2.0.2",
     "ampersand-model": "^8.0.1",
     "ampersand-router": "^5.0.0",
     "ampersand-view": "^10.0.2",
