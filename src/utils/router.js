@@ -4,6 +4,8 @@ import ViewSwitcher from 'ampersand-view-switcher';
 import FilmDetailsModel from '../models/filmDetails';
 import FilmDetailsView from '../views/filmDetails';
 import FilmsCollectionView from '../views/filmsCollection';
+import bindInfiniteScroll from './scrollListener';
+import unBindInfiniteScroll from './scrollListener';
 
 let clearMainContentArea = function() {
   let node = document.querySelector('#main-area');
@@ -30,6 +32,7 @@ let Router = AmpersandRouter.extend({
       });
     App.collections.filmsCollection.getFilms();
     switchView(filmsCollectionView);
+    bindInfiniteScroll(App.collections.filmsCollection);
   },
 
   details: function(id) {
@@ -37,6 +40,7 @@ let Router = AmpersandRouter.extend({
     let filmDetailsView = new FilmDetailsView({model: filmDetailsModel});
     filmDetailsModel.fetch();
     switchView(filmDetailsView);
+    unBindInfiniteScroll(App.collections.filmsCollection);
   }
 
 });
