@@ -10,4 +10,7 @@ Quick project to consume films API and display them.
 
 ## How to run
 `npm install`
+
 `npm run start:prod`
+
+`open http://localhost:8080/ in your browser`
