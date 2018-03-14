@@ -1,4 +1,5 @@
 import App from 'ampersand-app';
+import _ from 'underscore';
 
 let lastKnownScrollPosition = 0;
 let ticking = false;
